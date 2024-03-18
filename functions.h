@@ -25,11 +25,11 @@
 #define POINT "."
 
 int input(char **arr); // отримання речення від користувача і повернення кількості слів у цьому реченні; arr - масив слів
-void output(char **arr); // виведення речення; arr - масив слів
+void output(const char **arr); // виведення речення; arr - масив слів
 void freeMemory(char **arr, int size); // вивільнення речення; arr - масив слів, size - кількість слів у реченні
-char* invert(char *str); // повернення інвертованого слова; str - слово
-bool palindrome(char *str); // перевірка слова на паліндром; str - слово
-int compare(char *str1, char *str2); //порівняння двох слів
+char* invert(const char *str); // повернення інвертованого слова; str - слово
+bool palindrome(const char *str); // перевірка слова на паліндром; str - слово
+int compare(const char *str1, const char *str2); //порівняння двох слів
 //1 - слова рівні
 //0 - слова не рівні
 //-1 - перше слово більше
