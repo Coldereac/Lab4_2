@@ -81,8 +81,36 @@ bool palindrome(char *str) {
 
 
 bool palindrome(const char *str) {
-    char *inverted_str = invert(str);
-    bool is_palindrome = compare(str, inverted_str) == 0;
-    free(inverted_str);
+    int size = strlen(str);
+    int difference = ('a' - 'A');
+    char * lowered_str = (char *) malloc(size * sizeof(char));
+    int i = 0;
+    for (; i < size; i ++) {
+        if (str[i] >= 'A' && str[i] <= 'Z')
+            lowered_str[i] = str[i] + difference;
+        else
+            lowered_str[i] = str[i];
+    }
+    lowered_str[i] = '\0';
+    char *inverted_lowered_str = invert(lowered_str);
+    bool is_palindrome = compare(lowered_str, inverted_lowered_str) == 0;
+    free(lowered_str);
+    free(inverted_lowered_str);
     return is_palindrome;
 }
+
+/*bool palindrome(char *str) {
+    int size = strlen(str);
+    int difference = ('a' - 'A');
+    /*char * lowered_str = (char *) malloc(size * sizeof(char));#1#
+    int i = 0;
+    for (; i < size; i ++) {
+        if (str[i] >= 'A' && str[i] <= 'Z')
+            str[i] += difference;
+    }
+    str[i] = '\0';
+    char *inverted_lowered_str = invert(str);
+    bool is_palindrome = compare(str, inverted_lowered_str) == 0;
+    free(inverted_lowered_str);
+    return is_palindrome;
+}*/
