@@ -6,7 +6,7 @@ int main(void) {
     int size; // кількість слів у реченні
     int number; // число, яке ми отримаємо від користувача
     size = input(sent); // отримаємо речення від користувача і порахуємо його розмір
-    if (size < 0) {
+    if (size <= 0) {
         puts("No words in input");
     }
     else {
